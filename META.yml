@@ -1,0 +1,13 @@
+abstract: Safety ServerPages syntax
+author: cho45 <cho45@lowreal.net>
+build_requires: 
+  Test::More: 0
+distribution_type: module
+generated_by: Module::Install version 0.640
+license: perl
+name: Text-MicroMason-SafeServerPages
+no_index: 
+  directory: 
+    - inc
+    - t
+version: 0.01
