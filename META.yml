@@ -1,6 +1,7 @@
 abstract: Safety ServerPages syntax
 author: cho45 <cho45@lowreal.net>
 build_requires: 
+  Test::Base: 0
   Test::More: 0
 distribution_type: module
 generated_by: Module::Install version 0.640
@@ -10,4 +11,6 @@ no_index:
   directory: 
     - inc
     - t
-version: 0.01
+requires: 
+  Text::MicroMason: 0
+version: 0.02
