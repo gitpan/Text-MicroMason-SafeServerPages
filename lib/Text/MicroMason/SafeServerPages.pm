@@ -2,7 +2,7 @@ package Text::MicroMason::SafeServerPages;
 
 use strict;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 my %block_types = (
 	''     => 'perl', # <% perl statements %>
@@ -20,7 +20,7 @@ sub lex_token {
 	/\G <% ($re_tag) \s*> (.*?) <\/% \1 \s*> $re_eol? /xcogs ? ( $1 => $2 ) :
 
 	# Blocks in <% ... %> tags.
-	/\G <% ((?:(?:raw)?=|&)?) (.*?) %> /gcxs ? ( $block_types{$1} => ($1 eq '=') ? "encode_entities(do { $2 })" : $2 ) :
+	/\G <% ((?:(?:raw)?=|&)?) (.*?) %> /gcxs ? ( $block_types{$1} => ($1 eq '=') ? "encode_entities(do { $2 }, '<>&\"\\'')" : $2 ) :
 
 	# Blocks in <%-- ... --%> tags.
 	/\G <% -- (.*?) -- %> /gcxs ? ( 'doc' => $1 ) :
